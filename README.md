@@ -1,8 +1,8 @@
 # Welcome to Test-Monkey!
 Links:
-- [Meet the Team](https://github.com/maceyraejones/symmetrical-journey/wiki) 
-- [Product Proposal](https://github.com/maceyraejones/symmetrical-journey/wiki/Product-Proposal) 
-- [Product Backlog](https://github.com/maceyraejones/symmetrical-journey/projects/1) 
+- [Meet the Team](https://github.com/maceyraejones/test-monkey/wiki) 
+- [Product Proposal](https://github.com/maceyraejones/test-monkey/wiki/Product-Proposal) 
+- [Product Backlog](https://github.com/maceyraejones/test-monkey/projects/1) 
 
 # User Story (Story Points = Med👕)
 **As a...** dog/cat lover
