@@ -11,15 +11,8 @@ Links:
 
 **So that...** I can have a friend 🥰
 
-## Minimum Acceptance Criteria
-- [ ] User logs in
-- [ ] User goes to website
-- [ ] User swipes through different animals, swiping left
-- [ ] When user has picked the animal, they swipe right
-- [ ] User views more information on animal
-- [ ] User checks out
 
-# Deploy Locally
+## Deploy Locally
 
 1. Go to VSCode and go to Terminal
 
@@ -29,6 +22,19 @@ Links:
 
 3. Install [Node](https://nodejs.org/en/download/)
 
-4. Run App
+4. Run App (localhost:3000)
 
 ` npm run dev `
+
+You should see this:
+
+![cat](https://user-images.githubusercontent.com/89227313/160014356-1c8e5358-4574-47b8-8119-5d1cf320ce2b.png)
+
+
+
+## Minimum Acceptance Criteria
+- [ ] Can you deploy it locally?
+- [ ] Do you see a picture of that cat above?
+- [ ] Can you swipe through the images?
+- [ ] Can you type in the text box?
+- [ ] Does the text box submit?
