@@ -9,6 +9,11 @@ const Cards = () => {
 
   const [loading, setLoading] = useState(true);
 
+
+
+  
+ 
+
     const [animals, SetAnimals] = useState([0])
 
      const navigate = useNavigate();
@@ -27,21 +32,6 @@ const Cards = () => {
      
       fetchData();
     }, []);
-    // useEffect(() => {
-    //   const fetchData = async () =>{
-    //     setLoading(true);
-    //     try {
-    //       const {data: response} = await axios.get('/api/animal');
-    //       SetAnimals(response);
-    //     } catch (error) {
-    //       console.error(error.message);
-    //     }
-    //     setLoading(false);
-    //   }
-  
-    //   fetchData();
-    // }, []);
-    
 
     const swiped = (direction, nameTodelete) =>{
 
@@ -72,7 +62,7 @@ const Cards = () => {
 <TinderCard
 
 className='swipe'
-key={animal.name}
+key={animal.id}
 preventSwipe={["up", "down"]}
 onSwipe={(dir) => swiped(dir, animal.name)}
 onCardLeftScreen={()=>outOffFrame(animal.name) }
@@ -80,12 +70,13 @@ onCardLeftScreen={()=>outOffFrame(animal.name) }
 
 <div
             style={{
-              backgroundImage: `url(${animal.image})` /* Add backticks here */,
+              backgroundImage: `url()` /* Add backticks here */,
+            
             }}
             className="card"
           >
   <h3 >{animal.name}</h3>
-
+{console.log(animal.image)}
           </div>
        
        
@@ -100,6 +91,6 @@ onCardLeftScreen={()=>outOffFrame(animal.name) }
 
     </div>
   )
-}
-
+          }
+        
 export default Cards

@@ -1,9 +1,8 @@
 const express = require('express');
 const router = require("express").Router();
-const cards = require('../models/animals')
+const Cards = require('../models/animals')
 const multer = require("multer");
-
-
+const fs = require('fs');
 
 // file upload from directory 
 
@@ -14,15 +13,14 @@ destination : function(req, file, cb){
 
 // take two arguement
 // second argument is where the directory folder upload is 
-cb(null, './uploads');
+cb(null,  'backend/uploads');
 },
 
 // give file name to upload
 
 filename: function(req,file,cb){
 
-    cb(null, file.fieldname + '_' + Date.now().toISOString()
-    + file.originalname);
+    cb(null, file.originalname);
 
 
 }
@@ -34,23 +32,57 @@ storage: storage,
 });
 
 
-router.get('/view', (req, res) =>{
-    
-    
-    res.render("view", {title:"view"});
-    
-    
-})
+
 // insert record to the database you need to use post
+
 
 // reference to the add_animals in the view folder the route need to match with the action in the form
 router.post('/create', uploads.single('image'), (req, res) =>{
+   
+
+    const card = new Cards({
+
+name: req.body.name,
+image: { data: fs.readFileSync(req.file.path),
+
+contentType: "image/png"
+
+},
+age: req.body.age,
 
 
-cards.collection.insertMany({
 
-    name:req.body.name,
-    age:req.body.age
+
+
+
+    });
+    // res.end(JSON.stringify(card)); 
+    console.log(req.file);
+    card.save((err)=>{
+
+if (err){
+
+res.json({message: err.message, type: "danger"});
+
+}else{
+
+
+    req.session.message = {
+
+type: "success",
+message: "Added Succesfully!",
+
+
+};
+ res.redirect('/');
+
+
+// window.location.assign('/view')
+}
+    });
+    
+  
+
 });
 // const cards = Cards.collection.insertOne ({
 // name: req.body.name,
@@ -85,12 +117,6 @@ cards.collection.insertMany({
 
 // }); 
 
-});
-
-    
-
-
-
 router.get('/', (req, res) =>{
     
     
@@ -105,6 +131,11 @@ router.get('/create', (req, res) =>{
     
     
 })
+
+    
+
+
+
 
 
 

@@ -1,59 +1,62 @@
 
+// require express because we using express framework
 const express = require('express')
+// declare the express function above
 const app = express()
 const cors = require('cors');
 const connectDB = require("./connect/db");
 const animalroutes = require("./routes/animalroutes");
+// this is for the engine to figure out the path of the ejs file wchich is in the views folder
 var path = require('path');
+// this is the session for express
 const session = require('express-session');
-const crud = require('./routes/Crud')
 
-
-
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 // connecting to db this reference to connect folder db.js file
 connectDB();
 
-app.use(bodyparser.urlencoded({
 
-extended: true
-
-}));
-app.use(bodyparser.json());
-
-// setting the session
+// setting the session to use in the route crud.js
 app.use(session({
 
-secret: "my secrey key",
-saveUninitialized: true,
-resave: false,
+    secret: "my secrey key",
+    saveUninitialized: true,
+    resave: false,
+    
+    }))
+    
+    app.use((req,res, next)=>{
+    
+    res.locals.message = req.session.message;
+    delete req.session.message;
+    next();
+    });
 
-}))
 
-app.use((req,res, next)=>{
-
-res.locals.message = req.session.message;
-delete req.session.message;
-next();
-
-})
-
-// set engine
+// set engine to view the the path of the folder views at localhost:5001
+// _dirname is your directory you can do console.log(__dirname to see what your directory is)
+// path.join is a function where you join your directory to the folder that need to be view
+// it should be something like backend/views
 app.set('views', path.join(__dirname, './views'))
 app.set('view engine', 'ejs')
 
 // this so it wont say cross origin
 app.use(cors());
 
+// this is middleware to parse json data to http
+app.use(bodyParser.urlencoded({
+
+    extended: true
+    
+    }));
+    app.use(bodyParser.json());
 // middleware for responding and requesting json file
 app.use(express.json());
-
-// routing to the speficic path
-
+//  routing file use is a middleware for post, get, put, delete  request
+app.use("", require("./routes/Crud"));
 app.use("/api/animal",  animalroutes);
-app.use('/', crud);
-// connecting nodejs to a port number make sure choose the one that isnt running
 
+// connect to port for this server
 const PORT = 5001;
 
 //Listener

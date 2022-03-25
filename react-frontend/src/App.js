@@ -1,5 +1,4 @@
 
-import React from "react"; 
 import './App.css';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 // add compnonets

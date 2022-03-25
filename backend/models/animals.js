@@ -5,18 +5,19 @@ const CardSchema = mongoose.Schema({
 
 
 name: {type: String,
-    require: false
+    require: true
 
 
 },
 age: {type: Number,
-    require: false,
+    require: true,
 
-    description: "must be a Number"
 },
 image: {
 
-    type:String
+    data: Buffer,
+    contentType: String,
+    
 }
 
 
