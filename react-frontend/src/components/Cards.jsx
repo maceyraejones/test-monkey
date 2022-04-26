@@ -4,10 +4,14 @@ import "./Cards.css";
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
 
-import {Link} from 'react-router-dom';
 const Cards = () => {
 
   const [loading, setLoading] = useState(true);
+
+
+
+  
+ 
 
     const [animals, SetAnimals] = useState([0])
 
@@ -27,21 +31,6 @@ const Cards = () => {
      
       fetchData();
     }, []);
-    // useEffect(() => {
-    //   const fetchData = async () =>{
-    //     setLoading(true);
-    //     try {
-    //       const {data: response} = await axios.get('/api/animal');
-    //       SetAnimals(response);
-    //     } catch (error) {
-    //       console.error(error.message);
-    //     }
-    //     setLoading(false);
-    //   }
-  
-    //   fetchData();
-    // }, []);
-    
 
     const swiped = (direction, nameTodelete) =>{
 
@@ -64,7 +53,7 @@ const Cards = () => {
   return (
     <div className='animalsCards'>
         <div className='animalsCards__container'>
-        <h1>run out of card</h1>
+        <h1> out of card</h1>
   
 {animals.map((animal)=> 
 
@@ -72,7 +61,7 @@ const Cards = () => {
 <TinderCard
 
 className='swipe'
-key={animal.name}
+key={animal.id}
 preventSwipe={["up", "down"]}
 onSwipe={(dir) => swiped(dir, animal.name)}
 onCardLeftScreen={()=>outOffFrame(animal.name) }
@@ -81,11 +70,12 @@ onCardLeftScreen={()=>outOffFrame(animal.name) }
 <div
             style={{
               backgroundImage: `url(${animal.image})` /* Add backticks here */,
+            
             }}
             className="card"
           >
   <h3 >{animal.name}</h3>
-
+{console.log(animal.image)}
           </div>
        
        
@@ -100,6 +90,6 @@ onCardLeftScreen={()=>outOffFrame(animal.name) }
 
     </div>
   )
-}
-
+          }
+        
 export default Cards

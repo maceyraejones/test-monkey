@@ -1,26 +1,70 @@
 import React from 'react'
-import { useState, useEffect} from 'react'
-function AddCart() {
-  const [text, setText] = useState("")
+import { useState, useEffect} from 'react';
+import { useNavigate} from 'react-router-dom';
+import axios from "axios";
+import "./AddCart.css";
 
+
+
+function AddCart() {
+
+  const navigate = useNavigate();
+
+  const [like, setlike] = useState(1);
+
+  const [error, setError] = useState("");
+
+  
+
+  const getlikeHandler = async (e) => {
+    e.preventDefault();
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+    
+    try {
+      const { data } = await axios.post(
+        `/api/animal`,
+        {
+          like,
+          
+      
+        },
+        config
+      );
+
+      localStorage.setItem(data);
+
+      navigate("/");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
  
-  const handleChange = e => {
-    setText(e.target.value)
-  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
-
-{/* like a phone  */}
-
-{/* this where the client type the message */}
-<textarea id="w3review" value={text} name="w3review" rows="4" cols="50">
-type something....
-</textarea>
-
-        <input  type = "text"  />
-        <button   onClick={handleChange}>Send</button>
-
+<form onSubmit={getlikeHandler} className="register-screen__form">
+<button  value={like} onChange={(e) => setlike(e.target.value)} className='btn'><span className="glyphicon glyphicon-heart"></span></button>
+</form>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 const animals = [
     {
       name: "some dog",
-      image:"https://cdn.fotofits.com/petzlover/gallery/img/l/miniature-australian-shepherd-825072.jpg",
+      image:"https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg",
       age: 4
       
     },
