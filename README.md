@@ -36,5 +36,5 @@ You should see this:
 - [ ] Can you deploy it locally?
 - [ ] Do you see a picture of that cat above?
 - [ ] Can you swipe through the images?
-- [ ] Can you type in the text box?
-- [ ] Does the text box submit?
+- [ ] Can you like the animal?
+- [ ] Can you see how many likes an animal has?
