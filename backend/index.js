@@ -6,6 +6,7 @@ const app = express()
 const cors = require('cors');
 const connectDB = require("./connect/db");
 const animalroutes = require("./routes/animalroutes");
+
 // this is for the engine to figure out the path of the ejs file wchich is in the views folder
 var path = require('path');
 // this is the session for express
@@ -66,13 +67,18 @@ app.use("/api/animal",  animalroutes);
 
 if(process.env.NODE_env === 'production'){
 
-app.use(express.static(path.join(__dirname, './react-frontend/build')))
+app.use(express.static(path.join(__dirname, '../react-frontend/build')))
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './react-frontend/build/index.html'))
+    res.sendFile(path.join(__dirname, '../react-frontend/build/index.html'))
 })
 
 }
+
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname, "build"));
+//    });
+
 // connect to port for this server
 const PORT = process.env.PORT || 5001;
 

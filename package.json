@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/index.js",
+    "start": "node backend/index.js",
     "server": "nodemon backend/index.js",
     "client": "npm start --prefix react-frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seederScript.js",
-    "heruku-postbuild": "cd react-frontend && npmk install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
+  "engines": {
+    "node": "10.16.0"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
