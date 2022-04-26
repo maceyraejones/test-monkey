@@ -56,6 +56,16 @@ app.use(express.json());
 app.use("", require("./routes/Crud"));
 app.use("/api/animal",  animalroutes);
 
+
+if(process.env.NODE_env === 'production'){
+
+app.use(express.static(path.join(__dirname, '../react-frontend/build')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../react-frontend/build/index.html'))
+})
+
+}
 // connect to port for this server
 const PORT = 5001;
 
