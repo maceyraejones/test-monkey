@@ -8,7 +8,8 @@
     "server": "nodemon backend/index.js",
     "client": "npm start --prefix react-frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seederScript.js"
+    "data:import": "node backend/seederScript.js",
+    "homepage": "https://maceyraejones.github.io/test-monkey/"
   },
   "author": "",
   "license": "ISC",
