@@ -9,7 +9,7 @@ MONGO_URI = "mongodb+srv://vpham:vpham@cluster0.yqbww.mongodb.net/test";
 const connectDB = async() =>{
 
     try {
-        await mongoose.connect(MONGO_URI,{
+        await mongoose.connect(process.env.MONGODB || MONGO_URI,{
 
             useNewUrlParser: true,
             useUnifiedTopology: true,

@@ -37,6 +37,13 @@ app.use(express.static("uploads"));
 // _dirname is your directory you can do console.log(__dirname to see what your directory is)
 // path.join is a function where you join your directory to the folder that need to be view
 // it should be something like backend/views
+
+
+// app.use(express.static(path.join(__dirname, './react-frontend/build')))
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, './react-frontend/build/index.html'))
+// })
 app.set('views', path.join(__dirname, './views'))
 app.set('view engine', 'ejs')
 
@@ -56,8 +63,18 @@ app.use(express.json());
 app.use("", require("./routes/Crud"));
 app.use("/api/animal",  animalroutes);
 
+
+if(process.env.NODE_env === 'production'){
+
+app.use(express.static(path.join(__dirname, './react-frontend/build')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './react-frontend/build/index.html'))
+})
+
+}
 // connect to port for this server
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 //Listener
 app.listen(PORT, () => console.log(`Listening on localhost:${PORT}`));
