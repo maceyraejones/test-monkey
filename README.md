@@ -13,7 +13,9 @@ Links:
 **So that...** I can have a friend 🥰
 
 ## Deployment
+
 [Frontend on Netlify](https://github.com/maceyraejones/test-monkey/milestones) 
+
 [Backend on Heroku](https://github.com/maceyraejones/test-monkey/milestones) 
 
 ## Deploy Locally
