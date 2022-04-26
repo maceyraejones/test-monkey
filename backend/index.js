@@ -31,7 +31,7 @@ app.use(session({
     delete req.session.message;
     next();
     });
-
+app.use(express.static("uploads"));
 
 // set engine to view the the path of the folder views at localhost:5001
 // _dirname is your directory you can do console.log(__dirname to see what your directory is)

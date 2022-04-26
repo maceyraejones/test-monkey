@@ -34,13 +34,27 @@
     </div>
 
 </div> -->
+<div class="container" style="margin-top: 10%;">
+    <div class="card-header" style="background-color: rgba(35, 88, 35, 0.37);">
+        <h3> Add Animals</h3>
+    </div>
 <form action="/create" method="post" enctype="multipart/form-data">
-
+    <div class="mb-3">
+    <label style="font-weight: bold;" for="inputanimal" class="col-sm-4 col-form-label">Animals Name</label>
     <input type="text" name="name">
+</div>
+<div class="mb-3">
+    <label style="font-weight: bold;" for="inputanimal" class="col-sm-4 col-form-label">Age</label>
     <input type="number" name="age">
+</div>
+    <div class="mb-3">
+    <label  style="font-weight: bold;" for="formFile" class="form-label">Upload Image</label>
     <input type="file" name="image">
+</div>
     <input type="submit">
+
 </form>
+</div>
 
 
 <!-- </div> -->

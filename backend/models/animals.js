@@ -15,11 +15,15 @@ age: {type: Number,
 },
 image: {
 
-    data: Buffer,
-    contentType: String,
-    
-}
+    // data:Buffer,
+    // contentType: String
+    type: String,
+},
+like:{
 
+    type: Number,
+
+}
 
 
 

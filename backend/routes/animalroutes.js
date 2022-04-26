@@ -23,4 +23,25 @@ try{
  }
 })
 
+router.post("/", async (req,res) =>{
+
+
+
+
+    try{
+        const card = new Cards({
+
+            like: req.body.like,
+           
+            
+
+                });
+
+                card.save()
+    }catch(err){
+        console.error(err);
+
+        res.status(500).json({message: "server error"});
+    }
+    })
 module.exports = router;

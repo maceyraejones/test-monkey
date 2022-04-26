@@ -4,7 +4,6 @@ import "./Cards.css";
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
 
-import {Link} from 'react-router-dom';
 const Cards = () => {
 
   const [loading, setLoading] = useState(true);
@@ -54,7 +53,7 @@ const Cards = () => {
   return (
     <div className='animalsCards'>
         <div className='animalsCards__container'>
-        <h1>run out of card</h1>
+        <h1> out of card</h1>
   
 {animals.map((animal)=> 
 
@@ -70,7 +69,7 @@ onCardLeftScreen={()=>outOffFrame(animal.name) }
 
 <div
             style={{
-              backgroundImage: `url()` /* Add backticks here */,
+              backgroundImage: `url(${animal.image})` /* Add backticks here */,
             
             }}
             className="card"
