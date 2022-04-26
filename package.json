@@ -10,7 +10,7 @@
     "client": "npm start --prefix react-frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seederScript.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build --prefix client"
   },
   "engines": {
     "node": "10.16.0"
