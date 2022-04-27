@@ -14,6 +14,8 @@ Links:
 
 ## Deployment
 
+To deploy, we originally wanted to use all parts on Heroku. As most group encountered, Heroku's OAuth was having security issues. This made it to where you could only use the Heroku CLI to deploy. How to do that is linked [here](https://devcenter.heroku.com/articles/git#:~:text=The%20heroku%20create%20CLI%20command,remote%20for%20your%20local%20repository.). This then messed with our files so then our solution was to do the frontend deployed on Netlify while our backend was deployed on Heroku. This gave us the ability to show what the application was supposed to do.
+
 [Frontend on Netlify](https://github.com/maceyraejones/test-monkey/milestones) 
 
 [Backend on Heroku](https://github.com/maceyraejones/test-monkey/milestones) 
